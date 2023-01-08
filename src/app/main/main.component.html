@@ -1,0 +1,17 @@
+<p *ngIf="error; else mainBlock" class="error">{{error}}</p>
+
+<ng-template #mainBlock>
+  <div class="container main-container" >
+    <span class="main-btn">
+      <button type="button" class="btn btn-primary btn-lg" (click)="getRandomCat()">Get random cat</button>
+    </span>
+    <span class="main-img"  *ngIf="!loading; else loadingBlock">
+      <img [src]="catImage"  class="img-fluid img-thumbnail" *ngIf="catImage">
+    </span>
+  </div>
+
+  <ng-template #loadingBlock>
+    <p class="loading">Loading...</p>
+  </ng-template>
+
+</ng-template>
